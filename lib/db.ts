@@ -40,7 +40,7 @@ async function initDb() {
   if (db) return db;
 
   const SQL = await initSqlJs({
-    locateFile: (file: string) => path.join(process.cwd(), 'node_modules', 'sql.js', 'dist', file),
+    locateFile: (file: string) => path.join(process.cwd(), 'public', file),
   });
   
   let data: Buffer | undefined;
