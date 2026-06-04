@@ -5,7 +5,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "postinstall": "node scripts/postinstall.js"
+
   },
   "dependencies": {
     "cookie": "^0.5.0",
