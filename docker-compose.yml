@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  gestion-audio:
+    build: .
+    container_name: gestion-audio
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PATRON_PASSWORD=${PATRON_PASSWORD:-patron123}
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
